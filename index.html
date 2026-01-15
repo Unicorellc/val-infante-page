@@ -38,6 +38,9 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             color: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: pan-y;
         }
 
         /* Particle Canvas Background */
@@ -702,42 +705,267 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1, .hero-title { font-size: 4rem; }
+            h2 { font-size: 3rem; }
+
+            .slide {
+                padding: 60px 30px;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1, .hero-title { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
-            .tagline { font-size: 1.2rem; }
-            .subtitle { font-size: 1.1rem; }
+            h1, .hero-title {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .tagline {
+                font-size: 1rem !important;
+                margin-bottom: 0.75rem;
+            }
+
+            .subtitle {
+                font-size: 1rem !important;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
 
             .cards-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .card {
+                padding: 1.75rem;
+                border-radius: 16px;
+            }
+
+            .card-icon {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 1.5rem;
+            }
+
+            .card-number {
+                font-size: 2.5rem;
             }
 
             .stat-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem 1rem;
+                border-radius: 16px;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+                margin-top: 0.5rem;
+            }
+
+            .timeline {
+                margin: 2rem auto;
+            }
+
+            .timeline-line {
+                display: none;
             }
 
             .timeline-item {
                 flex-direction: column !important;
+                margin: 2rem 0;
+            }
+
+            .timeline-dot {
+                position: relative;
+                left: 0;
+                transform: translateX(0);
+                margin-bottom: 1rem;
             }
 
             .timeline-content {
-                margin: 1.5rem 0 !important;
+                margin: 0 !important;
+                padding: 1.75rem;
+                border-radius: 16px;
+            }
+
+            .phase-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+                margin-bottom: 1rem;
             }
 
             .slide {
-                padding: 60px 20px;
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            .scroll-container {
+                scroll-snap-type: none;
             }
 
             .nav-dots {
                 display: none;
             }
 
+            /* Disable 3D transforms on mobile */
+            .card:hover {
+                transform: translateY(-8px) !important;
+            }
+
+            .quote-box {
+                padding: 1.5rem;
+                margin: 2rem 0;
+                font-size: 0.95rem;
+                border-radius: 12px;
+            }
+
+            .quote-box::before {
+                font-size: 3rem;
+                top: 0.5rem;
+                left: 1rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.75rem !important;
+            }
+
+            .cta-section p {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .cta-section > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.5rem !important;
+                margin: 2rem auto !important;
+            }
+
+            .cta-section > div[style*="grid-template-columns"] > div > div:first-child {
+                font-size: 2rem !important;
+            }
+
+            .cta-section > div[style*="padding: 3rem"] {
+                padding: 1.5rem !important;
+                margin-top: 2rem !important;
+            }
+
+            .cta-section > div[style*="padding: 3rem"] h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .cta-section > div[style*="padding: 3rem"] p {
+                font-size: 0.9rem !important;
+                line-height: 1.7 !important;
+            }
+
             .cta-button {
-                padding: 1.25rem 2.5rem;
-                font-size: 1rem;
-                margin: 0.5rem;
+                padding: 1rem 2rem !important;
+                font-size: 0.875rem !important;
+                margin: 0.5rem !important;
                 display: block;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .feature-list li {
+                font-size: 0.9rem;
+                padding: 0.5rem 0;
+                padding-left: 1.75rem;
+            }
+
+            .gradient-orb {
+                filter: blur(80px);
+            }
+
+            .orb-1 {
+                width: 400px;
+                height: 400px;
+            }
+
+            .orb-2 {
+                width: 300px;
+                height: 300px;
+            }
+
+            .orb-3 {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1, .hero-title {
+                font-size: 2rem !important;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            .tagline {
+                font-size: 0.875rem !important;
+                letter-spacing: 0.05em;
+            }
+
+            .subtitle {
+                font-size: 0.9rem !important;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.25rem 1rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card-number {
+                font-size: 2rem;
+            }
+
+            .cta-section > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.5rem !important;
+                font-size: 0.8rem !important;
             }
         }
 
@@ -1257,8 +1485,9 @@
         canvas.height = window.innerHeight;
 
         const particles = [];
-        const particleCount = 80;
-        const connectionDistance = 150;
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 40 : 80;
+        const connectionDistance = isMobile ? 100 : 150;
 
         class Particle {
             constructor() {
@@ -1413,26 +1642,28 @@
             }
         });
 
-        // 3D Card tilt effect
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        // 3D Card tilt effect (desktop only)
+        if (!isMobile) {
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
 
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
 
-                card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+                });
             });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
-            });
-        });
+        }
     </script>
 </body>
 </html>
