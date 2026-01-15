@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Val Infante | Fintech Executive & Entrepreneur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00D4AA;
+            --primary-dark: #00B893;
+            --secondary: #1A1A2E;
+            --accent: #FF6B6B;
+            --dark: #0F0F1E;
+            --light: #F8FAFC;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            top: 50%;
+            right: -100px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+
+        .content {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: logoReveal 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: visible;
+            border: 1px solid var(--gray-200);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmin(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-600);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1.0s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 0 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--primary);
+            z-index: 10;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 24px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 170, 0.4);
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .nav-dot:hover {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .nav-dot.active {
+            background: var(--primary);
+            transform: scale(1.5);
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.5);
+        }
+
+        .quote-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--gray-700);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            .timeline-content {
+                margin: 1rem 0;
+            }
+            .slide {
+                padding: 60px 20px;
+            }
+            .logo {
+                font-size: 2.5rem;
+            }
+            .nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-dots" id="navDots"></div>
+
+    <div class="scroll-container" id="scrollContainer">
+
+        <!-- Slide 1: Hero -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content" style="text-align: center;">
+                <div class="logo-container">
+                    <div class="logo">Val Infante</div>
+                </div>
+                <p class="tagline">Fintech Executive & Entrepreneur</p>
+                <h1>Building Financial<br>Inclusion at Scale</h1>
+                <p class="subtitle">Founder & President of MyBambu | Processing $180M+ monthly | Serving 929K+ customers across US & LATAM</p>
+
+                <div class="stat-grid" style="max-width: 1000px; margin: 4rem auto 0;">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="929" data-suffix="K+">0K+</div>
+                        <div class="stat-label">CUSTOMERS SERVED</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="180" data-prefix="$" data-suffix="M+">$0M+</div>
+                        <div class="stat-label">MONTHLY VOLUME</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="3.4" data-prefix="$" data-suffix="B+">$0B+</div>
+                        <div class="stat-label">TOTAL PROCESSED</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="10">0</div>
+                        <div class="stat-label">YEARS IN FINTECH</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Professional Summary -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>Executive Profile</h2>
+                <p class="subtitle">Multidisciplinary fintech leader with proven expertise in building and scaling regulated financial platforms</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M28 32l4 4 8-8" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Current Role</h3>
+                        <p style="color: var(--gray-700); line-height: 1.6;">
+                            <strong>President of Operations, CMO & CTO</strong><br>
+                            MyBambu (Feb 2025 - Present)<br><br>
+                            Direct comprehensive strategic vision for mobile-first neobank serving 929K+ customers. Unified leadership across technology, operations, and marketing.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M22 32h20M32 22v20" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Core Expertise</h3>
+                        <ul class="feature-list">
+                            <li>Neobanking & Digital Wallets</li>
+                            <li>Cross-Border Payments (US-LATAM)</li>
+                            <li>Sponsor Bank Integration</li>
+                            <li>MSB Operations & Compliance</li>
+                            <li>Data-Driven Growth</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M10 44l12-15 10 10 12-15 10 10" stroke="#00D4AA" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="29" r="3" fill="#00B893"/>
+                            <circle cx="32" cy="39" r="3" fill="#00B893"/>
+                            <circle cx="44" cy="24" r="3" fill="#00B893"/>
+                        </svg>
+                        <h3>Key Achievements</h3>
+                        <ul class="feature-list">
+                            <li>45% operational cost reduction</li>
+                            <li>150% customer growth</li>
+                            <li>99.9% platform uptime</li>
+                            <li>Zero major violations</li>
+                            <li>$5M+ AI automation savings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quote-box" style="margin-top: 3rem;">
+                    "Fintech founder and operator with deep experience building, scaling, and operating regulated digital banking and payments platforms across the U.S. and Latin America."
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Origin Story -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>The Journey</h2>
+                <p class="subtitle">From immigrant at age 10 to leading fintech executive</p>
+
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Age 10</span>
+                            <h3>Arrived as Immigrant</h3>
+                            <p style="color: var(--gray-600);">
+                                Arrived in the United States with family, experiencing firsthand the challenges faced by unbanked immigrants. This experience planted the seeds for a mission to democratize financial services.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">2013</span>
+                            <h3>Early Career</h3>
+                            <p style="color: var(--gray-600);">
+                                <strong>University of Memphis</strong> - BS Marketing Management<br>
+                                Entered financial services industry, working in banking and helping others grow financially.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">2014-2017</span>
+                            <h3>St. Jude Children's Research Hospital</h3>
+                            <p style="color: var(--gray-600);">
+                                <strong>Fundraising Manager</strong><br>
+                                Supported teams raising $800M+ annually. Generated $25M+ through integrated campaigns. Saw families reflected in his own immigrant experience, reinforcing mission to help underserved communities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">2018</span>
+                            <h3>MyBambu Founded</h3>
+                            <p style="color: var(--gray-600);">
+                                <strong>Co-founded with Douglas Quay</strong><br>
+                                Instead of just a debit card, created a comprehensive ecosystem covering true immigrant needs: remittances, phone top-ups, banking services—all without requiring ITIN or Social Security.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">2024</span>
+                            <h3>Forbes Colombia Feature</h3>
+                            <p style="color: var(--gray-600);">
+                                Featured profile highlighting MyBambu's impact: 500K+ accounts, $147M+ monthly volume, serving 18 LATAM countries with 300% below-market pricing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: MyBambu Impact -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>MyBambu: Impact at Scale</h2>
+                <p class="subtitle">Building financial infrastructure for the underbanked</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-label">Platform Scale</div>
+                        <div class="card-number" data-target="929" data-suffix="K+">0K+</div>
+                        <div class="card-description">Active customers across US & LATAM</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Growth: <strong>150%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">From 300K to 929K+ users</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Monthly Volume</div>
+                        <div class="card-number" data-target="180" data-prefix="$" data-suffix="M+">$0M+</div>
+                        <div class="card-description">Sustained monthly payment volume</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Total Processed: <strong>$3.4B+</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Across 60M+ transactions</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Cross-Border Reach</div>
+                        <div class="card-number" data-target="18">0</div>
+                        <div class="card-description">LATAM countries served</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">From: <strong>$0.85</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">35-minute transfers</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Cost Savings</div>
+                        <div class="card-number" data-target="300" data-suffix="%">0%</div>
+                        <div class="card-description">Below market pricing</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Competitors: <strong>$9-12</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">MyBambu: <strong>$0.85</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Operational Excellence</div>
+                        <div class="card-number" data-target="99.9" data-suffix="%">0%</div>
+                        <div class="card-description">Platform uptime</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Cost Reduction: <strong>45%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Zero major violations</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Customer Satisfaction</div>
+                        <div class="card-number" data-target="4.5" data-suffix="+★">0★</div>
+                        <div class="card-description">App store ratings</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Brand Awareness: <strong>70%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">In target markets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Technical Leadership -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>Technical & Operational Expertise</h2>
+                <p class="subtitle">End-to-end platform development and scaling</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="15" y="20" width="34" height="28" rx="4" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M25 30h14M25 37h14M25 44h10" stroke="#00B893" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Cloud Architecture</h3>
+                        <ul class="feature-list">
+                            <li>AWS/Kubernetes infrastructure</li>
+                            <li>99.9% uptime, <100ms latency</li>
+                            <li>Auto-scaling to 50K+ concurrent users</li>
+                            <li>35% cost reduction through optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="20" r="8" stroke="#00D4AA" stroke-width="2"/>
+                            <circle cx="18" cy="44" r="6" stroke="#00D4AA" stroke-width="2"/>
+                            <circle cx="46" cy="44" r="6" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M32 28v8M32 36l-10 5M32 36l10 5" stroke="#00B893" stroke-width="2"/>
+                        </svg>
+                        <h3>AI/ML Integration</h3>
+                        <ul class="feature-list">
+                            <li>GPT-4 customer support (70% deflection)</li>
+                            <li>TensorFlow fraud detection (60% reduction)</li>
+                            <li>Personalization engine (40% adoption increase)</li>
+                            <li>$5M+ annual savings through AI</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M22 32h20M32 22v20" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="4" fill="#00B893"/>
+                        </svg>
+                        <h3>Payment Infrastructure</h3>
+                        <ul class="feature-list">
+                            <li>Integrated 15+ payment providers</li>
+                            <li>Real-time FX optimization</li>
+                            <li>OFAC/sanctions screening</li>
+                            <li><2-second transaction completion</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#00D4AA" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" stroke="#00B893" stroke-width="2"/>
+                        </svg>
+                        <h3>Security & Compliance</h3>
+                        <ul class="feature-list">
+                            <li>PCI-DSS Level 1 certified</li>
+                            <li>SOC 2 Type II certified</li>
+                            <li>50+ state MTL licenses</li>
+                            <li>Zero major violations in 4 years</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M10 40l12-12 10 8 12-16 10 8" stroke="#00D4AA" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="28" r="3" fill="#00B893"/>
+                            <circle cx="32" cy="36" r="3" fill="#00B893"/>
+                        </svg>
+                        <h3>Marketing & Growth</h3>
+                        <ul class="feature-list">
+                            <li>150% customer growth (300K→929K+)</li>
+                            <li>40% CAC reduction ($45→$32)</li>
+                            <li>AI-powered personalization</li>
+                            <li>500K+ qualified leads generated</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="20" cy="25" r="8" stroke="#00D4AA" stroke-width="2"/>
+                            <circle cx="44" cy="25" r="8" stroke="#00D4AA" stroke-width="2"/>
+                            <circle cx="32" cy="45" r="8" stroke="#00D4AA" stroke-width="2"/>
+                            <path d="M26 30l3 10M38 30l-3 10" stroke="#00B893" stroke-width="2"/>
+                        </svg>
+                        <h3>Team Leadership</h3>
+                        <ul class="feature-list">
+                            <li>Managed 70+ member teams</li>
+                            <li>Led engineering, ops, marketing</li>
+                            <li>Acted as COO, CTO, CMO simultaneously</li>
+                            <li>Cross-functional collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Recognition & Media -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>Recognition & Speaking</h2>
+                <p class="subtitle">Industry awards, media features, and thought leadership</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-label">Media Features</div>
+                        <h3>Forbes Colombia (2024)</h3>
+                        <p style="color: var(--gray-700); margin-top: 1rem; line-height: 1.6;">
+                            Featured profile: "MyBambu, la fintech tras la inclusión financiera de los inmigrantes vulnerables en Estados Unidos"
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Industry Awards</div>
+                        <h3>Multiple Honors</h3>
+                        <ul class="feature-list">
+                            <li>South Florida Business Journal - 40 Under 40 (2023)</li>
+                            <li>Hispanic Executive - Top 10 Hispanic Tech Leaders (2023)</li>
+                            <li>American Banker - Most Influential in Fintech (2024)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Speaking Engagements</div>
+                        <h3>Thought Leadership</h3>
+                        <ul class="feature-list">
+                            <li>FinTech Americas Summit, Miami (2024) - Keynote</li>
+                            <li>AWS re:Invent, Las Vegas (2023)</li>
+                            <li>LATAM Banking Innovation Conference (2023)</li>
+                            <li>TechCrunch Disrupt, San Francisco (2022)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quote-box" style="margin-top: 3rem; font-size: 1.1rem;">
+                    "When you believe in something passionately, there is no going back. Financial inclusion isn't just a business opportunity—it's a responsibility to serve communities that traditional banking has left behind."
+                </div>
+
+                <div class="quote-box" style="font-size: 1.1rem;">
+                    "We want to improve the quality of life for migrants. In the United States, not having a card limits you—from being able to move around to making daily purchases to planning for the future. By the end of next year we aim to have more than one million customers in the United States and expand our services to Latin America. We want to facilitate financial inclusion by providing safe alternatives, without borders, all in a single App."
+                    <div style="text-align: right; margin-top: 1rem; font-weight: 600; color: var(--primary);">- Forbes Colombia, 2024</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Call to Action -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <div class="cta-section">
+                    <h2 style="color: white; margin-bottom: 1rem;">Let's Connect</h2>
+                    <p style="font-size: 1.25rem; color: var(--gray-100); max-width: 700px; margin: 0 auto 2rem;">
+                        Open to executive opportunities, advisory positions, speaking engagements, and partnerships in fintech and financial inclusion.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 3rem auto;">
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">10+</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Years in FinTech</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">$180M+</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Monthly Volume</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">929K+</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Customers Served</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">Zero</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Major Violations</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">Areas of Expertise</h3>
+                        <p style="color: var(--gray-100); font-size: 1.1rem; line-height: 1.8;">
+                            <strong style="color: white;">Executive Roles:</strong> CEO, CTO, COO, CMO, President<br>
+                            <strong style="color: white;">Focus Areas:</strong> Neobanking, Cross-Border Payments, Compliance, Scaling Operations<br>
+                            <strong style="color: white;">Markets:</strong> US, LATAM, Miami-Fort Lauderdale, Remote<br>
+                            <strong style="color: white;">Languages:</strong> English & Spanish (Native/Bilingual)
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <a href="https://www.linkedin.com/in/val-infante-5ba81978" class="cta-button" target="_blank">Connect on LinkedIn</a>
+                        <a href="mailto:val.infante@mybambu.com" class="cta-button" style="margin-left: 1rem;">Email Me</a>
+                    </div>
+
+                    <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--gray-300);">
+                        val.infante@mybambu.com | (305) 555-0147 | Miami-Fort Lauderdale, FL
+                    </p>
+
+                    <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--gray-300);">
+                        Presented by 3JD
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const scrollContainer = document.getElementById('scrollContainer');
+        const slides = document.querySelectorAll('.slide');
+        const navDotsContainer = document.getElementById('navDots');
+
+        // Create navigation dots
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => {
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+            });
+            navDotsContainer.appendChild(dot);
+        });
+
+        const navDots = document.querySelectorAll('.nav-dot');
+        navDots[0].classList.add('active');
+
+        // Update active dot on scroll
+        scrollContainer.addEventListener('scroll', () => {
+            slides.forEach((slide, index) => {
+                const rect = slide.getBoundingClientRect();
+                if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                    navDots.forEach(dot => dot.classList.remove('active'));
+                    navDots[index].classList.add('active');
+                }
+            });
+        });
+
+        // Animate counters
+        function animateCounter(element, target, suffix = '', prefix = '') {
+            const duration = 2000;
+            const start = parseFloat(element.textContent.replace(/[^0-9.]/g, '')) || 0;
+            const increment = (target - start) / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                let displayValue = current;
+                if (target >= 1000 && target < 1000000 && !suffix.includes('K')) {
+                    displayValue = Math.floor(current);
+                } else if (target < 100 && target % 1 !== 0) {
+                    displayValue = current.toFixed(1);
+                } else {
+                    displayValue = Math.floor(current);
+                }
+
+                element.textContent = prefix + displayValue + suffix;
+            }, 16);
+        }
+
+        // Intersection Observer for counter animation
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-target]');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            const target = parseFloat(counter.dataset.target);
+                            const suffix = counter.dataset.suffix || '';
+                            const prefix = counter.dataset.prefix || '';
+
+                            setTimeout(() => {
+                                animateCounter(counter, target, suffix, prefix);
+                            }, 300);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => observer.observe(slide));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const currentIndex = Array.from(navDots).findIndex(dot => dot.classList.contains('active'));
+            if (e.key === 'ArrowDown' && currentIndex < slides.length - 1) {
+                slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
