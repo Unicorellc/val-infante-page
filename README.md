@@ -23,10 +23,13 @@ A modern, interactive portfolio presentation showcasing Val Infante's career in 
 
 ## 🎨 Branding
 
-- **Primary Color**: `#00D4AA` (MyBambu Green)
-- **Secondary Color**: `#1A1A2E` (Dark Navy)
-- **Accent Color**: `#FF6B6B` (Coral)
-- **Fonts**: Poppins (headings), Inter (body)
+Based on Official MyBambu Brand Guidelines 2025:
+- **Primary Color**: `#27FB6B` (Synthetic Spearmint - Official MyBambu Green)
+- **Secondary Color**: `#00052E` (Blue Black)
+- **Dark**: `#000312` (Midnight Blue)
+- **Accent Color**: `#206DFE` (Bluerocratic)
+- **Fonts**: Poppins (primary), Inter (body)
+- Follows official MyBambu Brand Guidelines 2025
 
 ## 🌐 Live Demo
 
