@@ -64,7 +64,7 @@ Visit: [https://yourusername.github.io/val-infante-portfolio](https://youruserna
 
 - 929K+ customers served
 - $180M+ monthly payment volume
-- $3.4B+ total processed
+- 3B+ transactions processed
 - 10+ years in fintech
 - 99.9% platform uptime
 - 150% customer growth
@@ -78,9 +78,8 @@ Visit: [https://yourusername.github.io/val-infante-portfolio](https://youruserna
 ## 🤝 Contact
 
 - **Email**: valinfante10@gmail.com
-- **Phone**: (305) 555-0147
 - **LinkedIn**: [linkedin.com/in/val-infante-5ba81978](https://www.linkedin.com/in/val-infante-5ba81978)
-- **Location**: Miami-Fort Lauderdale, FL
+- **Location**: West Palm Beach, FL
 
 ---
 
