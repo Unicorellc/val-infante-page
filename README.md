@@ -77,7 +77,7 @@ Visit: [https://yourusername.github.io/val-infante-portfolio](https://youruserna
 
 ## 🤝 Contact
 
-- **Email**: val.infante@mybambu.com
+- **Email**: valinfante10@gmail.com
 - **Phone**: (305) 555-0147
 - **LinkedIn**: [linkedin.com/in/val-infante-5ba81978](https://www.linkedin.com/in/val-infante-5ba81978)
 - **Location**: Miami-Fort Lauderdale, FL
