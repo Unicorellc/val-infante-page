@@ -238,6 +238,11 @@
             transform: scale(1.1) rotate(5deg);
         }
 
+        .card a:hover {
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+        }
+
         .card-label {
             font-size: 0.875rem;
             font-weight: 600;
@@ -887,21 +892,42 @@
                         <div class="card-label">Media Features</div>
                         <h3>Forbes Colombia (2024)</h3>
                         <p style="color: var(--gray-700); margin-top: 1rem; line-height: 1.6;">
-                            Featured profile: "MyBambu, la fintech tras la inclusión financiera de los inmigrantes vulnerables en Estados Unidos"
+                            Featured profile: <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">"MyBambu, la fintech tras la inclusión financiera de los inmigrantes vulnerables en Estados Unidos"</a>
                         </p>
                         <p style="color: var(--gray-600); margin-top: 1rem; font-size: 0.9rem; line-height: 1.6;">
                             Article highlights journey from immigrant at age 10 to fintech executive, company achievements including 500,000+ accounts opened, $147M+ monthly payment volume, and remittances to 18 LATAM countries.
                         </p>
+                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">Read Article →</a>
                     </div>
 
                     <div class="card">
                         <div class="card-label">Industry Recognition</div>
                         <h3>Awards & Honors</h3>
-                        <ul class="feature-list">
-                            <li>South Florida Business Journal - 40 Under 40 (2023)</li>
-                            <li>Hispanic Executive - Top 10 Hispanic Tech Leaders (2023)</li>
-                            <li>American Banker - Most Influential in Fintech (2024)</li>
-                            <li>Fintech Breakthrough Awards - Best Neobank Solution (2024)</li>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                                <a href="https://www.bizjournals.com/southflorida/news/2023/05/15/40-under-40-2023.html" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                                    <span><strong>South Florida Business Journal</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">40 Under 40 (2023)</span></span>
+                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                                </a>
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                                <a href="https://hispanicexecutive.com/top-10-hispanic-tech-leaders-2023/" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                                    <span><strong>Hispanic Executive</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Top 10 Hispanic Tech Leaders (2023)</span></span>
+                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                                </a>
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                                <a href="https://www.americanbanker.com/list/most-influential-in-fintech-2024" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                                    <span><strong>American Banker</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Most Influential in Fintech (2024)</span></span>
+                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                                </a>
+                            </li>
+                            <li style="padding: 0.75rem 0;">
+                                <a href="https://fintechbreakthrough.com/2024-winners/" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                                    <span><strong>Fintech Breakthrough Awards</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Best Neobank Solution (2024)</span></span>
+                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -923,7 +949,9 @@
 
                 <div class="quote-box" style="font-size: 1.1rem;">
                     "We want to improve the quality of life for migrants. In the United States, not having a card limits you—from being able to move around to making daily purchases to planning for the future. By the end of next year we aim to have more than one million customers in the United States and expand our services to Latin America. We want to facilitate financial inclusion by providing safe alternatives, without borders, all in a single App."
-                    <div style="text-align: right; margin-top: 1rem; font-weight: 600; color: var(--primary);">- Forbes Colombia, 2024</div>
+                    <div style="text-align: right; margin-top: 1rem;">
+                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="font-weight: 600; color: var(--primary); text-decoration: none;">- Forbes Colombia, 2024 →</a>
+                    </div>
                 </div>
             </div>
         </section>
