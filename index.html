@@ -6,7 +6,7 @@
     <title>Val Infante | Fintech Executive & Entrepreneur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -34,9 +34,21 @@
 
         body {
             font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+            background: var(--dark);
             overflow-x: hidden;
             scroll-behavior: smooth;
+            color: var(--light);
+        }
+
+        /* Particle Canvas Background */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
         }
 
         .scroll-container {
@@ -44,6 +56,8 @@
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
+            position: relative;
+            z-index: 1;
         }
 
         .slide {
@@ -58,7 +72,8 @@
             overflow: hidden;
         }
 
-        .bg-orbs {
+        /* Animated Gradient Background */
+        .gradient-bg {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -66,45 +81,54 @@
             z-index: 0;
         }
 
-        .orb {
+        .gradient-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            filter: blur(120px);
+            opacity: 0.3;
+            animation: floatOrb 25s infinite ease-in-out;
         }
 
         .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--primary);
-            top: -200px;
-            left: -200px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary), transparent);
+            top: -300px;
+            left: -300px;
             animation-delay: 0s;
         }
 
         .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent);
-            bottom: -150px;
-            right: -150px;
-            animation-delay: 5s;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent), transparent);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 8s;
         }
 
         .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: var(--secondary);
-            top: 50%;
-            right: -100px;
-            animation-delay: 10s;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--primary-dark), transparent);
+            top: 40%;
+            right: -250px;
+            animation-delay: 15s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 50px) scale(0.9); }
+        @keyframes floatOrb {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            33% {
+                transform: translate(100px, -100px) scale(1.2);
+                opacity: 0.4;
+            }
+            66% {
+                transform: translate(-100px, 100px) scale(0.9);
+                opacity: 0.25;
+            }
         }
 
         .content {
@@ -114,96 +138,94 @@
             z-index: 1;
         }
 
+        /* Typography */
         h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 5rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--light), var(--primary));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
 
         h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
         }
 
         .tagline {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(39, 251, 107, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(39, 251, 107, 0.8);
+            }
         }
 
         .subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-600);
+            font-size: 1.5rem;
+            color: var(--gray-300);
             margin-bottom: 3rem;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 400;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            animation: logoReveal 1.5s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes logoReveal {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
+        /* Glassmorphism Cards */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             position: relative;
-            overflow: visible;
-            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .card::before {
@@ -212,137 +234,233 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(39, 251, 107, 0.1), rgba(32, 109, 254, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 200%;
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(39, 251, 107, 0.15);
+            transform: translateY(-12px) rotateX(5deg);
+            border-color: rgba(39, 251, 107, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 25px 60px rgba(39, 251, 107, 0.3),
+                0 0 80px rgba(39, 251, 107, 0.2),
+                inset 0 0 40px rgba(39, 251, 107, 0.1);
         }
 
         .card:hover::before {
-            transform: scaleX(1);
+            opacity: 1;
+        }
+
+        .card:hover::after {
+            opacity: 0.5;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .card-icon {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.4s ease;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 0 20px rgba(39, 251, 107, 0.5));
         }
 
         .card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 30px rgba(39, 251, 107, 0.8));
+        }
+
+        .card a {
+            color: var(--gray-300);
+            transition: all 0.3s ease;
         }
 
         .card a:hover {
             color: var(--primary) !important;
-            transition: color 0.3s ease;
+            text-shadow: 0 0 20px rgba(39, 251, 107, 0.6);
         }
 
         .card-label {
             font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--gray-600);
+            font-weight: 700;
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
         }
 
         .card-number {
             font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: block;
-            line-height: 1.2;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1;
         }
 
         .card-description {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            line-height: 1.5;
+            font-size: 1rem;
+            color: var(--gray-400);
+            line-height: 1.6;
         }
 
+        /* Stat Cards with 3D Effect */
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmin(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .stat-card {
             text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(39, 251, 107, 0.5);
+            box-shadow:
+                0 20px 50px rgba(39, 251, 107, 0.3),
+                0 0 60px rgba(39, 251, 107, 0.2);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
         }
 
         .stat-value {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--light), var(--primary));
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            line-height: 1;
         }
 
         .stat-label {
             font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-top: 0.5rem;
-            font-weight: 600;
+            color: var(--gray-400);
+            margin-top: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
+        /* Feature List */
         .feature-list {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .feature-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.75rem 0;
+            padding-left: 2rem;
             position: relative;
-            color: var(--gray-600);
+            color: var(--gray-300);
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
 
         .feature-list li::before {
-            content: '✓';
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--primary);
             font-weight: bold;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
         }
 
+        .feature-list li:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .feature-list li:hover::before {
+            transform: translateX(5px);
+            text-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Timeline with 3D Effects */
         .timeline {
             position: relative;
-            max-width: 1000px;
-            margin: 3rem auto;
+            max-width: 1100px;
+            margin: 4rem auto;
         }
 
         .timeline-line {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 3px;
+            width: 4px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(180deg, var(--primary), var(--accent), var(--primary));
+            box-shadow: 0 0 20px var(--primary);
         }
 
         .timeline-item {
             position: relative;
-            margin: 3rem 0;
+            margin: 4rem 0;
             display: flex;
             align-items: center;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
         }
 
         .timeline-item:nth-child(1) { animation-delay: 0.2s; }
@@ -368,207 +486,322 @@
 
         .timeline-content {
             flex: 1;
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 0 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin: 0 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .timeline-content:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+            border-color: rgba(39, 251, 107, 0.5);
+            box-shadow: 0 20px 50px rgba(39, 251, 107, 0.3);
         }
 
         .timeline-dot {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             background: var(--primary);
             border-radius: 50%;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--primary);
+            box-shadow:
+                0 0 0 6px rgba(39, 251, 107, 0.2),
+                0 0 0 12px rgba(39, 251, 107, 0.1),
+                0 0 30px var(--primary);
             z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow:
+                    0 0 0 6px rgba(39, 251, 107, 0.2),
+                    0 0 0 12px rgba(39, 251, 107, 0.1),
+                    0 0 30px var(--primary);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+                box-shadow:
+                    0 0 0 10px rgba(39, 251, 107, 0.3),
+                    0 0 0 20px rgba(39, 251, 107, 0.15),
+                    0 0 50px var(--primary);
+            }
         }
 
         .phase-badge {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: 20px;
+            color: var(--dark);
+            border-radius: 30px;
             font-size: 0.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 10px 30px rgba(39, 251, 107, 0.4);
         }
 
+        /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            border-radius: 24px;
-            color: white;
+            padding: 5rem 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
 
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(39, 251, 107, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .cta-button {
             display: inline-block;
-            padding: 1.25rem 3rem;
+            padding: 1.5rem 4rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--dark);
-            font-weight: 700;
-            font-size: 1.125rem;
-            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            border-radius: 60px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(39, 251, 107, 0.3);
-            margin-top: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 15px 40px rgba(39, 251, 107, 0.4),
+                0 0 60px rgba(39, 251, 107, 0.3);
+            margin: 1rem 0.5rem;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(39, 251, 107, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 20px 50px rgba(39, 251, 107, 0.5),
+                0 0 80px rgba(39, 251, 107, 0.4);
         }
 
+        /* Navigation Dots */
         .nav-dots {
             position: fixed;
-            right: 2rem;
+            right: 3rem;
             top: 50%;
             transform: translateY(-50%);
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .nav-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: var(--gray-300);
+            background: rgba(255, 255, 255, 0.2);
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid white;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
         }
 
-        .nav-dot:hover {
+        .nav-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
             background: var(--primary);
-            transform: scale(1.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .nav-dot:hover::before {
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
         }
 
         .nav-dot.active {
             background: var(--primary);
             transform: scale(1.5);
-            box-shadow: 0 0 15px rgba(0, 212, 170, 0.5);
+            box-shadow:
+                0 0 20px var(--primary),
+                0 0 40px rgba(39, 251, 107, 0.5);
         }
 
+        .nav-dot.active::before {
+            width: 30px;
+            height: 30px;
+            opacity: 0.3;
+        }
+
+        /* Quote Box */
         .quote-box {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
             border-left: 4px solid var(--primary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 3rem 0;
             font-style: italic;
-            color: var(--gray-700);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            color: var(--gray-300);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
         }
 
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Hero Section Special Layout */
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 7rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2rem; }
+            h1, .hero-title { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .subtitle { font-size: 1.1rem; }
+
             .cards-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .timeline-item {
                 flex-direction: column !important;
             }
+
             .timeline-content {
-                margin: 1rem 0;
+                margin: 1.5rem 0 !important;
             }
+
             .slide {
                 padding: 60px 20px;
             }
-            .logo {
-                font-size: 2.5rem;
-            }
+
             .nav-dots {
                 display: none;
             }
-            .content > div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+
+            .cta-button {
+                padding: 1.25rem 2.5rem;
+                font-size: 1rem;
+                margin: 0.5rem;
+                display: block;
             }
-            .content > div[style*="grid-template-columns: 1fr 1fr"] > div:first-child {
-                text-align: center !important;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            .content > div[style*="grid-template-columns: 1fr 1fr"] .logo-container {
-                justify-content: center !important;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .content > div[style*="grid-template-columns: 1fr 1fr"] .tagline,
-            .content > div[style*="grid-template-columns: 1fr 1fr"] h1,
-            .content > div[style*="grid-template-columns: 1fr 1fr"] .subtitle {
-                text-align: center !important;
-            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
         }
     </style>
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
+
     <div class="nav-dots" id="navDots"></div>
 
     <div class="scroll-container" id="scrollContainer">
 
         <!-- Slide 1: Hero -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
             </div>
-            <div class="content">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto;">
-                    <div style="text-align: left;">
-                        <div class="logo-container" style="justify-content: flex-start;">
-                            <div class="logo">Val Infante</div>
-                        </div>
-                        <p class="tagline" style="text-align: left;">Fintech Executive & Entrepreneur</p>
-                        <h1 style="text-align: left;">Building Financial<br>Inclusion at Scale</h1>
-                        <p class="subtitle" style="text-align: left;">Founder & President of MyBambu | Processing $180M+ monthly | 3B+ transactions | Serving 929K+ customers</p>
-                    </div>
-                    <div style="position: relative;">
-                        <div style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(39, 251, 107, 0.3); border: 4px solid var(--primary);">
-                            <img src="assets/images/val-infante-profile.jpg" alt="Val Infante" style="width: 100%; height: auto; display: block;">
-                        </div>
-                    </div>
-                </div>
+            <div class="content hero-content fade-in">
+                <p class="tagline">Fintech Executive & Entrepreneur</p>
+                <h1 class="hero-title">Val Infante</h1>
+                <p class="subtitle">Building Financial Inclusion at Scale<br>Processing $180M+ monthly | 3B+ transactions | Serving 929K+ customers</p>
 
-                <div class="stat-grid" style="max-width: 1200px; margin: 4rem auto 0; grid-column: 1 / -1;">
+                <div class="stat-grid">
                     <div class="stat-card">
                         <div class="stat-value" data-target="929" data-suffix="K+">0K+</div>
-                        <div class="stat-label">CUSTOMERS SERVED</div>
+                        <div class="stat-label">Customers Served</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" data-target="180" data-prefix="$" data-suffix="M+">$0M+</div>
-                        <div class="stat-label">MONTHLY VOLUME</div>
+                        <div class="stat-label">Monthly Volume</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" data-target="3" data-suffix="B+">0B+</div>
-                        <div class="stat-label">TRANSACTIONS</div>
+                        <div class="stat-label">Transactions</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" data-target="10">0</div>
-                        <div class="stat-label">YEARS IN FINTECH</div>
+                        <div class="stat-value" data-target="10" data-suffix="+">0+</div>
+                        <div class="stat-label">Years in Fintech</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 2: Professional Summary -->
+        <!-- Slide 2: Executive Profile -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-2"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-2"></div>
             </div>
             <div class="content">
                 <h2>Executive Profile</h2>
@@ -577,12 +810,12 @@
                 <div class="cards-grid">
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M28 32l4 4 8-8" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M28 32l4 4 8-8" stroke="#27FB6B" stroke-width="4" stroke-linecap="round"/>
                         </svg>
                         <h3>Current Role</h3>
-                        <p style="color: var(--gray-700); line-height: 1.6;">
-                            <strong>President of Operations, CMO & CTO</strong><br>
+                        <p style="color: var(--gray-300); line-height: 1.8;">
+                            <strong style="color: var(--light);">President of Operations, CMO & CTO</strong><br>
                             MyBambu (Feb 2025 - Present)<br><br>
                             Direct comprehensive strategic vision for mobile-first neobank serving 929K+ customers. Unified leadership across technology, operations, and marketing.
                         </p>
@@ -590,8 +823,8 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="32" r="20" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M22 32h20M32 22v20" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="20" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M22 32h20M32 22v20" stroke="#27FB6B" stroke-width="4" stroke-linecap="round"/>
                         </svg>
                         <h3>Core Expertise</h3>
                         <ul class="feature-list">
@@ -605,10 +838,10 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <path d="M10 44l12-15 10 10 12-15 10 10" stroke="#00D4AA" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="22" cy="29" r="3" fill="#00B893"/>
-                            <circle cx="32" cy="39" r="3" fill="#00B893"/>
-                            <circle cx="44" cy="24" r="3" fill="#00B893"/>
+                            <path d="M10 44l12-15 10 10 12-15 10 10" stroke="#27FB6B" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="29" r="4" fill="#27FB6B"/>
+                            <circle cx="32" cy="39" r="4" fill="#27FB6B"/>
+                            <circle cx="44" cy="24" r="4" fill="#27FB6B"/>
                         </svg>
                         <h3>Key Achievements</h3>
                         <ul class="feature-list">
@@ -621,17 +854,17 @@
                     </div>
                 </div>
 
-                <div class="quote-box" style="margin-top: 3rem;">
-                    "Fintech founder and operator with deep experience building, scaling, and operating regulated digital banking and payments platforms across the U.S. and Latin America."
+                <div class="quote-box" style="margin-top: 4rem;">
+                    Fintech founder and operator with deep experience building, scaling, and operating regulated digital banking and payments platforms across the U.S. and Latin America.
                 </div>
             </div>
         </section>
 
         <!-- Slide 3: Origin Story -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-3"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-3"></div>
             </div>
             <div class="content">
                 <h2>The Journey</h2>
@@ -645,7 +878,7 @@
                         <div class="timeline-content">
                             <span class="phase-badge">Age 10</span>
                             <h3>Arrived as Immigrant</h3>
-                            <p style="color: var(--gray-600);">
+                            <p style="color: var(--gray-300); line-height: 1.8;">
                                 Arrived in the United States with family, experiencing firsthand the challenges faced by unbanked immigrants. This experience planted the seeds for a mission to democratize financial services.
                             </p>
                         </div>
@@ -656,8 +889,8 @@
                         <div class="timeline-content">
                             <span class="phase-badge">2013</span>
                             <h3>Early Career</h3>
-                            <p style="color: var(--gray-600);">
-                                <strong>University of Memphis</strong> - BS Marketing Management<br>
+                            <p style="color: var(--gray-300); line-height: 1.8;">
+                                <strong style="color: var(--light);">University of Memphis</strong> - BS Marketing Management<br>
                                 Entered financial services industry, working in banking and helping others grow financially.
                             </p>
                         </div>
@@ -668,8 +901,8 @@
                         <div class="timeline-content">
                             <span class="phase-badge">2014-2017</span>
                             <h3>St. Jude Children's Research Hospital</h3>
-                            <p style="color: var(--gray-600);">
-                                <strong>Fundraising Manager</strong><br>
+                            <p style="color: var(--gray-300); line-height: 1.8;">
+                                <strong style="color: var(--light);">Fundraising Manager</strong><br>
                                 Supported teams raising $800M+ annually. Generated $25M+ through integrated campaigns. Saw families reflected in his own immigrant experience, reinforcing mission to help underserved communities.
                             </p>
                         </div>
@@ -680,8 +913,8 @@
                         <div class="timeline-content">
                             <span class="phase-badge">2018</span>
                             <h3>MyBambu Founded</h3>
-                            <p style="color: var(--gray-600);">
-                                <strong>Co-founded with Douglas Quay</strong><br>
+                            <p style="color: var(--gray-300); line-height: 1.8;">
+                                <strong style="color: var(--light);">Co-founded with Douglas Quay</strong><br>
                                 Instead of just a debit card, created a comprehensive ecosystem covering true immigrant needs: remittances, phone top-ups, banking services—all without requiring ITIN or Social Security.
                             </p>
                         </div>
@@ -692,7 +925,7 @@
                         <div class="timeline-content">
                             <span class="phase-badge">2024</span>
                             <h3>Forbes Colombia Feature</h3>
-                            <p style="color: var(--gray-600);">
+                            <p style="color: var(--gray-300); line-height: 1.8;">
                                 Featured profile highlighting MyBambu's impact: 500K+ accounts, $147M+ monthly volume, serving 18 LATAM countries with 300% below-market pricing.
                             </p>
                         </div>
@@ -703,8 +936,8 @@
 
         <!-- Slide 4: MyBambu Impact -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-2"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-2"></div>
             </div>
             <div class="content">
                 <h2>MyBambu: Impact at Scale</h2>
@@ -715,9 +948,9 @@
                         <div class="card-label">Platform Scale</div>
                         <div class="card-number" data-target="929" data-suffix="K+">0K+</div>
                         <div class="card-description">Active customers across US & LATAM</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Growth: <strong>150%</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">From 300K to 929K+ users</div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">Growth: <strong style="color: var(--primary);">150%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">From 300K to 929K+ users</div>
                         </div>
                     </div>
 
@@ -725,9 +958,9 @@
                         <div class="card-label">Monthly Volume</div>
                         <div class="card-number" data-target="180" data-prefix="$" data-suffix="M+">$0M+</div>
                         <div class="card-description">Sustained monthly payment volume</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Total Processed: <strong>$3.4B+</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">Across 60M+ transactions</div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">Total Processed: <strong style="color: var(--primary);">$3.4B+</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">Across 60M+ transactions</div>
                         </div>
                     </div>
 
@@ -735,9 +968,9 @@
                         <div class="card-label">Cross-Border Reach</div>
                         <div class="card-number" data-target="18">0</div>
                         <div class="card-description">LATAM countries served</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">From: <strong>$0.85</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">35-minute transfers</div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">From: <strong style="color: var(--primary);">$0.85</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">35-minute transfers</div>
                         </div>
                     </div>
 
@@ -745,9 +978,9 @@
                         <div class="card-label">Cost Savings</div>
                         <div class="card-number" data-target="300" data-suffix="%">0%</div>
                         <div class="card-description">Below market pricing</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Competitors: <strong>$9-12</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">MyBambu: <strong>$0.85</strong></div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">Competitors: <strong style="color: var(--warning);">$9-12</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">MyBambu: <strong style="color: var(--primary);">$0.85</strong></div>
                         </div>
                     </div>
 
@@ -755,9 +988,9 @@
                         <div class="card-label">Operational Excellence</div>
                         <div class="card-number" data-target="99.9" data-suffix="%">0%</div>
                         <div class="card-description">Platform uptime</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Cost Reduction: <strong>45%</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">Zero major violations</div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">Cost Reduction: <strong style="color: var(--primary);">45%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">Zero major violations</div>
                         </div>
                     </div>
 
@@ -765,9 +998,9 @@
                         <div class="card-label">Customer Satisfaction</div>
                         <div class="card-number" data-target="4.5" data-suffix="+★">0★</div>
                         <div class="card-description">App store ratings</div>
-                        <div style="margin-top: 1.5rem;">
-                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Brand Awareness: <strong>70%</strong></div>
-                            <div style="font-size: 0.875rem; color: var(--gray-600);">In target markets</div>
+                        <div style="margin-top: 2rem;">
+                            <div style="font-size: 1rem; color: var(--gray-300); margin-bottom: 0.5rem;">Brand Awareness: <strong style="color: var(--primary);">70%</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-400);">In target markets</div>
                         </div>
                     </div>
                 </div>
@@ -776,9 +1009,9 @@
 
         <!-- Slide 5: Technical Leadership -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-3"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-3"></div>
             </div>
             <div class="content">
                 <h2>Technical & Operational Expertise</h2>
@@ -787,8 +1020,8 @@
                 <div class="cards-grid">
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <rect x="15" y="20" width="34" height="28" rx="4" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M25 30h14M25 37h14M25 44h10" stroke="#00B893" stroke-width="2" stroke-linecap="round"/>
+                            <rect x="12" y="18" width="40" height="32" rx="4" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M22 28h20M22 36h20M22 44h14" stroke="#27FB6B" stroke-width="3" stroke-linecap="round"/>
                         </svg>
                         <h3>Cloud Architecture</h3>
                         <ul class="feature-list">
@@ -801,10 +1034,10 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="20" r="8" stroke="#00D4AA" stroke-width="2"/>
-                            <circle cx="18" cy="44" r="6" stroke="#00D4AA" stroke-width="2"/>
-                            <circle cx="46" cy="44" r="6" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M32 28v8M32 36l-10 5M32 36l10 5" stroke="#00B893" stroke-width="2"/>
+                            <circle cx="32" cy="20" r="10" stroke="#27FB6B" stroke-width="3"/>
+                            <circle cx="16" cy="44" r="8" stroke="#27FB6B" stroke-width="3"/>
+                            <circle cx="48" cy="44" r="8" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M32 30v8M32 38l-12 4M32 38l12 4" stroke="#27FB6B" stroke-width="3"/>
                         </svg>
                         <h3>AI/ML Integration</h3>
                         <ul class="feature-list">
@@ -817,9 +1050,9 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="32" r="20" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M22 32h20M32 22v20" stroke="#00B893" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="32" cy="32" r="4" fill="#00B893"/>
+                            <circle cx="32" cy="32" r="22" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M20 32h24M32 20v24" stroke="#27FB6B" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="5" fill="#27FB6B"/>
                         </svg>
                         <h3>Payment Infrastructure</h3>
                         <ul class="feature-list">
@@ -832,8 +1065,8 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#00D4AA" stroke-width="2"/>
-                            <circle cx="32" cy="32" r="8" stroke="#00B893" stroke-width="2"/>
+                            <path d="M32 8L8 20v22c0 16 12 24 24 26 12-2 24-10 24-26V20L32 8z" stroke="#27FB6B" stroke-width="3"/>
+                            <circle cx="32" cy="32" r="10" stroke="#27FB6B" stroke-width="3"/>
                         </svg>
                         <h3>Security & Compliance</h3>
                         <ul class="feature-list">
@@ -846,9 +1079,9 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <path d="M10 40l12-12 10 8 12-16 10 8" stroke="#00D4AA" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="22" cy="28" r="3" fill="#00B893"/>
-                            <circle cx="32" cy="36" r="3" fill="#00B893"/>
+                            <path d="M8 42l14-14 12 10 14-18 12 10" stroke="#27FB6B" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="28" r="4" fill="#27FB6B"/>
+                            <circle cx="34" cy="38" r="4" fill="#27FB6B"/>
                         </svg>
                         <h3>Marketing & Growth</h3>
                         <ul class="feature-list">
@@ -861,10 +1094,10 @@
 
                     <div class="card">
                         <svg class="card-icon" viewBox="0 0 64 64" fill="none">
-                            <circle cx="20" cy="25" r="8" stroke="#00D4AA" stroke-width="2"/>
-                            <circle cx="44" cy="25" r="8" stroke="#00D4AA" stroke-width="2"/>
-                            <circle cx="32" cy="45" r="8" stroke="#00D4AA" stroke-width="2"/>
-                            <path d="M26 30l3 10M38 30l-3 10" stroke="#00B893" stroke-width="2"/>
+                            <circle cx="18" cy="24" r="10" stroke="#27FB6B" stroke-width="3"/>
+                            <circle cx="46" cy="24" r="10" stroke="#27FB6B" stroke-width="3"/>
+                            <circle cx="32" cy="46" r="10" stroke="#27FB6B" stroke-width="3"/>
+                            <path d="M24 30l4 12M40 30l-4 12" stroke="#27FB6B" stroke-width="3"/>
                         </svg>
                         <h3>Team Leadership</h3>
                         <ul class="feature-list">
@@ -880,8 +1113,8 @@
 
         <!-- Slide 6: Recognition & Media -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-2"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-2"></div>
             </div>
             <div class="content">
                 <h2>Recognition & Impact</h2>
@@ -891,41 +1124,41 @@
                     <div class="card">
                         <div class="card-label">Media Features</div>
                         <h3>Forbes Colombia (2024)</h3>
-                        <p style="color: var(--gray-700); margin-top: 1rem; line-height: 1.6;">
-                            Featured profile: <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">"MyBambu, la fintech tras la inclusión financiera de los inmigrantes vulnerables en Estados Unidos"</a>
+                        <p style="color: var(--gray-300); margin-top: 1.5rem; line-height: 1.8;">
+                            Featured profile: <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700;">"MyBambu, la fintech tras la inclusión financiera de los inmigrantes vulnerables en Estados Unidos"</a>
                         </p>
-                        <p style="color: var(--gray-600); margin-top: 1rem; font-size: 0.9rem; line-height: 1.6;">
+                        <p style="color: var(--gray-400); margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.7;">
                             Article highlights journey from immigrant at age 10 to fintech executive, company achievements including 500,000+ accounts opened, $147M+ monthly payment volume, and remittances to 18 LATAM countries.
                         </p>
-                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">Read Article →</a>
+                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="display: inline-block; margin-top: 2rem; padding: 0.75rem 2rem; background: var(--primary); color: var(--dark); text-decoration: none; border-radius: 30px; font-size: 0.875rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Read Article →</a>
                     </div>
 
                     <div class="card">
                         <div class="card-label">Industry Recognition</div>
                         <h3>Awards & Honors</h3>
-                        <ul style="list-style: none; margin-top: 1rem;">
-                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
-                                <a href="https://www.bizjournals.com/southflorida/news/2023/05/15/40-under-40-2023.html" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
-                                    <span><strong>South Florida Business Journal</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">40 Under 40 (2023)</span></span>
-                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                        <ul style="list-style: none; margin-top: 2rem;">
+                            <li style="padding: 1.25rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                <a href="https://www.bizjournals.com/southflorida/news/2023/05/15/40-under-40-2023.html" target="_blank" style="color: var(--gray-200); text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                                    <span><strong style="color: var(--light); font-size: 1.1rem;">South Florida Business Journal</strong><br><span style="font-size: 0.95rem; color: var(--gray-400);">40 Under 40 (2023)</span></span>
+                                    <span style="color: var(--primary); font-size: 2rem;">→</span>
                                 </a>
                             </li>
-                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
-                                <a href="https://hispanicexecutive.com/top-10-hispanic-tech-leaders-2023/" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
-                                    <span><strong>Hispanic Executive</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Top 10 Hispanic Tech Leaders (2023)</span></span>
-                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                            <li style="padding: 1.25rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                <a href="https://hispanicexecutive.com/top-10-hispanic-tech-leaders-2023/" target="_blank" style="color: var(--gray-200); text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                                    <span><strong style="color: var(--light); font-size: 1.1rem;">Hispanic Executive</strong><br><span style="font-size: 0.95rem; color: var(--gray-400);">Top 10 Hispanic Tech Leaders (2023)</span></span>
+                                    <span style="color: var(--primary); font-size: 2rem;">→</span>
                                 </a>
                             </li>
-                            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
-                                <a href="https://www.americanbanker.com/list/most-influential-in-fintech-2024" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
-                                    <span><strong>American Banker</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Most Influential in Fintech (2024)</span></span>
-                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                            <li style="padding: 1.25rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                <a href="https://www.americanbanker.com/list/most-influential-in-fintech-2024" target="_blank" style="color: var(--gray-200); text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                                    <span><strong style="color: var(--light); font-size: 1.1rem;">American Banker</strong><br><span style="font-size: 0.95rem; color: var(--gray-400);">Most Influential in Fintech (2024)</span></span>
+                                    <span style="color: var(--primary); font-size: 2rem;">→</span>
                                 </a>
                             </li>
-                            <li style="padding: 0.75rem 0;">
-                                <a href="https://fintechbreakthrough.com/2024-winners/" target="_blank" style="color: var(--gray-700); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
-                                    <span><strong>Fintech Breakthrough Awards</strong><br><span style="font-size: 0.875rem; color: var(--gray-600);">Best Neobank Solution (2024)</span></span>
-                                    <span style="color: var(--primary); font-size: 1.5rem;">→</span>
+                            <li style="padding: 1.25rem 0;">
+                                <a href="https://fintechbreakthrough.com/2024-winners/" target="_blank" style="color: var(--gray-200); text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                                    <span><strong style="color: var(--light); font-size: 1.1rem;">Fintech Breakthrough Awards</strong><br><span style="font-size: 0.95rem; color: var(--gray-400);">Best Neobank Solution (2024)</span></span>
+                                    <span style="color: var(--primary); font-size: 2rem;">→</span>
                                 </a>
                             </li>
                         </ul>
@@ -943,14 +1176,14 @@
                     </div>
                 </div>
 
-                <div class="quote-box" style="margin-top: 3rem; font-size: 1.1rem;">
-                    "When you believe in something passionately, there is no going back. Financial inclusion isn't just a business opportunity—it's a responsibility to serve communities that traditional banking has left behind."
+                <div class="quote-box" style="margin-top: 4rem;">
+                    When you believe in something passionately, there is no going back. Financial inclusion isn't just a business opportunity—it's a responsibility to serve communities that traditional banking has left behind.
                 </div>
 
-                <div class="quote-box" style="font-size: 1.1rem;">
-                    "We want to improve the quality of life for migrants. In the United States, not having a card limits you—from being able to move around to making daily purchases to planning for the future. By the end of next year we aim to have more than one million customers in the United States and expand our services to Latin America. We want to facilitate financial inclusion by providing safe alternatives, without borders, all in a single App."
-                    <div style="text-align: right; margin-top: 1rem;">
-                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="font-weight: 600; color: var(--primary); text-decoration: none;">- Forbes Colombia, 2024 →</a>
+                <div class="quote-box">
+                    We want to improve the quality of life for migrants. In the United States, not having a card limits you—from being able to move around to making daily purchases to planning for the future. By the end of next year we aim to have more than one million customers in the United States and expand our services to Latin America. We want to facilitate financial inclusion by providing safe alternatives, without borders, all in a single App.
+                    <div style="text-align: right; margin-top: 2rem;">
+                        <a href="https://forbes.co/2024/08/28/negocios/mybambu-la-fintech-tras-la-inclusion-financiera-de-los-inmigrantes-vulnerables-en-estados-unidos" target="_blank" style="font-weight: 700; color: var(--primary); text-decoration: none; font-size: 1.1rem;">— Forbes Colombia, 2024 →</a>
                     </div>
                 </div>
             </div>
@@ -958,56 +1191,56 @@
 
         <!-- Slide 7: Call to Action -->
         <section class="slide">
-            <div class="bg-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-3"></div>
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-3"></div>
             </div>
             <div class="content">
                 <div class="cta-section">
-                    <h2 style="color: white; margin-bottom: 1rem;">Let's Connect</h2>
-                    <p style="font-size: 1.25rem; color: var(--gray-100); max-width: 700px; margin: 0 auto 2rem;">
+                    <h2 style="color: var(--light); margin-bottom: 2rem;">Let's Connect</h2>
+                    <p style="font-size: 1.5rem; color: var(--gray-300); max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
                         Open to executive opportunities, advisory positions, speaking engagements, and partnerships in fintech and financial inclusion.
                     </p>
 
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 3rem auto;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1000px; margin: 4rem auto;">
                         <div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">10+</div>
-                            <div style="color: var(--gray-200); font-weight: 600;">Years in FinTech</div>
+                            <div style="font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">10+</div>
+                            <div style="color: var(--gray-300); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem;">Years in FinTech</div>
                         </div>
                         <div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">$180M+</div>
-                            <div style="color: var(--gray-200); font-weight: 600;">Monthly Volume</div>
+                            <div style="font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$180M+</div>
+                            <div style="color: var(--gray-300); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem;">Monthly Volume</div>
                         </div>
                         <div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">929K+</div>
-                            <div style="color: var(--gray-200); font-weight: 600;">Customers Served</div>
+                            <div style="font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">929K+</div>
+                            <div style="color: var(--gray-300); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem;">Customers Served</div>
                         </div>
                         <div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">Zero</div>
-                            <div style="color: var(--gray-200); font-weight: 600;">Major Violations</div>
+                            <div style="font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Zero</div>
+                            <div style="color: var(--gray-300); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem;">Major Violations</div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
-                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">Areas of Expertise</h3>
-                        <p style="color: var(--gray-100); font-size: 1.1rem; line-height: 1.8;">
-                            <strong style="color: white;">Executive Roles:</strong> CEO, CTO, COO, CMO, President<br>
-                            <strong style="color: white;">Focus Areas:</strong> Neobanking, Cross-Border Payments, Compliance, Scaling Operations<br>
-                            <strong style="color: white;">Markets:</strong> US, LATAM, West Palm Beach, Remote<br>
-                            <strong style="color: white;">Languages:</strong> English & Spanish (Native/Bilingual)
+                    <div style="margin-top: 4rem; padding: 3rem; background: rgba(255,255,255,0.05); border-radius: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h3 style="color: var(--light); margin-bottom: 2rem; font-size: 2rem;">Areas of Expertise</h3>
+                        <p style="color: var(--gray-300); font-size: 1.2rem; line-height: 2;">
+                            <strong style="color: var(--primary);">Executive Roles:</strong> CEO, CTO, COO, CMO, President<br>
+                            <strong style="color: var(--primary);">Focus Areas:</strong> Neobanking, Cross-Border Payments, Compliance, Scaling Operations<br>
+                            <strong style="color: var(--primary);">Markets:</strong> US, LATAM, West Palm Beach, Remote<br>
+                            <strong style="color: var(--primary);">Languages:</strong> English & Spanish (Native/Bilingual)
                         </p>
                     </div>
 
-                    <div style="margin-top: 3rem;">
+                    <div style="margin-top: 4rem;">
                         <a href="https://www.linkedin.com/in/val-infante-5ba81978" class="cta-button" target="_blank">Connect on LinkedIn</a>
-                        <a href="mailto:valinfante10@gmail.com" class="cta-button" style="margin-left: 1rem;">Email Me</a>
+                        <a href="mailto:valinfante10@gmail.com" class="cta-button">Email Me</a>
                     </div>
 
-                    <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--gray-300);">
+                    <p style="margin-top: 3rem; font-size: 1rem; color: var(--gray-400);">
                         valinfante10@gmail.com | West Palm Beach, FL
                     </p>
 
-                    <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--gray-300);">
+                    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--gray-500);">
                         Presented by 3JD
                     </p>
                 </div>
@@ -1017,11 +1250,83 @@
     </div>
 
     <script>
+        // Particle System
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(39, 251, 107, 0.5)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, i) => {
+                particle.update();
+                particle.draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particle.x - particles[j].x;
+                    const dy = particle.y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(39, 251, 107, ${0.2 * (1 - distance / connectionDistance)})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Navigation
         const scrollContainer = document.getElementById('scrollContainer');
         const slides = document.querySelectorAll('.slide');
         const navDotsContainer = document.getElementById('navDots');
 
-        // Create navigation dots
         slides.forEach((slide, index) => {
             const dot = document.createElement('div');
             dot.className = 'nav-dot';
@@ -1034,7 +1339,6 @@
         const navDots = document.querySelectorAll('.nav-dot');
         navDots[0].classList.add('active');
 
-        // Update active dot on scroll
         scrollContainer.addEventListener('scroll', () => {
             slides.forEach((slide, index) => {
                 const rect = slide.getBoundingClientRect();
@@ -1047,7 +1351,7 @@
 
         // Animate counters
         function animateCounter(element, target, suffix = '', prefix = '') {
-            const duration = 2000;
+            const duration = 2500;
             const start = parseFloat(element.textContent.replace(/[^0-9.]/g, '')) || 0;
             const increment = (target - start) / (duration / 16);
             let current = start;
@@ -1072,10 +1376,9 @@
             }, 16);
         }
 
-        // Intersection Observer for counter animation
         const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '50px'
+            threshold: 0.3,
+            rootMargin: '0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1108,6 +1411,27 @@
             } else if (e.key === 'ArrowUp' && currentIndex > 0) {
                 slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
             }
+        });
+
+        // 3D Card tilt effect
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
         });
     </script>
 </body>
