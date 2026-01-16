@@ -32,9 +32,15 @@
     <meta name="language" content="English">
     <link rel="canonical" href="https://unicorellc.github.io/val-infante-page/">
 
+    <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+
+    <!-- DNS Prefetch for faster connections -->
+    <link rel="dns-prefetch" href="https://www.linkedin.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <style>
         * {
             margin: 0;
@@ -118,6 +124,7 @@
             filter: blur(120px);
             opacity: 0.3;
             animation: floatOrb 25s infinite ease-in-out;
+            will-change: transform, opacity;
         }
 
         .orb-1 {
@@ -257,6 +264,7 @@
             overflow: hidden;
             transform-style: preserve-3d;
             perspective: 1000px;
+            will-change: transform;
         }
 
         .card::before {
@@ -1075,6 +1083,30 @@
         .fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
+
+        /* Accessibility: Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .gradient-orb {
+                animation: none !important;
+            }
+
+            .card:hover {
+                transform: none !important;
+            }
+        }
+
+        /* Performance: Reduce complexity on low-end devices */
+        @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+            .gradient-orb {
+                filter: blur(60px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1605,13 +1637,25 @@
                         </p>
                     </div>
 
-                    <div style="margin-top: 4rem;">
-                        <a href="https://www.linkedin.com/in/val-infante-5ba81978" class="cta-button" target="_blank">Connect on LinkedIn</a>
-                        <a href="mailto:valinfante10@gmail.com" class="cta-button">Email Me</a>
+                    <!-- Primary LinkedIn CTA -->
+                    <div style="margin-top: 4rem; text-align: center;">
+                        <a href="https://www.linkedin.com/in/val-infante-5ba81978" class="cta-button" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #0077B5, #0095D5) !important; box-shadow: 0 20px 60px rgba(0, 119, 181, 0.4), 0 0 80px rgba(0, 119, 181, 0.3) !important; font-size: 1.5rem !important; padding: 2rem 5rem !important;">
+                            <span style="display: inline-flex; align-items: center; gap: 1rem;">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" style="display: inline-block;">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                Connect on LinkedIn
+                            </span>
+                        </a>
+                        <br>
+                        <a href="mailto:valinfante10@gmail.com" class="cta-button" style="margin-top: 1.5rem;">📧 Email Me</a>
+                        <p style="margin-top: 2rem; font-size: 1.1rem; color: var(--gray-300); font-weight: 600;">
+                            💼 Let's discuss executive opportunities, partnerships, or speaking engagements
+                        </p>
                     </div>
 
-                    <p style="margin-top: 3rem; font-size: 1rem; color: var(--gray-400);">
-                        valinfante10@gmail.com | West Palm Beach, FL
+                    <p style="margin-top: 4rem; font-size: 1rem; color: var(--gray-400);">
+                        📍 West Palm Beach, FL | 📧 valinfante10@gmail.com
                     </p>
 
                     <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--gray-500);">
@@ -1624,16 +1668,20 @@
     </div>
 
     <script>
-        // Particle System
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // Performance: Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        const particles = [];
-        const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 40 : 80;
-        const connectionDistance = isMobile ? 100 : 150;
+        // Particle System (Skip if reduced motion is preferred)
+        if (!prefersReducedMotion) {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const isMobile = window.innerWidth < 768;
+            const particleCount = isMobile ? 40 : 80;
+            const connectionDistance = isMobile ? 100 : 150;
 
         class Particle {
             constructor() {
@@ -1690,12 +1738,16 @@
             requestAnimationFrame(animate);
         }
 
-        animate();
+            animate();
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        } else {
+            // Hide canvas if reduced motion is preferred
+            document.getElementById('particleCanvas').style.display = 'none';
+        }
 
         // Navigation
         const scrollContainer = document.getElementById('scrollContainer');
