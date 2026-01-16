@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Card Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a1a;
+        }
+
+        .preview-card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #000312 0%, #00052E 50%, #000312 100%);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Animated Background Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #27FB6B, transparent);
+            top: -150px;
+            left: -150px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #206DFE, transparent);
+            bottom: -100px;
+            right: -100px;
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: #27FB6B;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-size: 96px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #27FB6B, #ffffff, #27FB6B);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 32px;
+            color: #E5E7EB;
+            font-weight: 700;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(39, 251, 107, 0.3);
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: #27FB6B;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #9CA3AF;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 2px solid rgba(39, 251, 107, 0.2);
+        }
+
+        .footer-text {
+            font-size: 18px;
+            color: #9CA3AF;
+            font-weight: 700;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #27FB6B;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-card">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+        <div class="content">
+            <div class="tagline">Fintech Executive & Entrepreneur</div>
+            <div class="name">Val Infante</div>
+            <div class="subtitle">Built America's #1 Fintech for Immigrants</div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">1.2M+</div>
+                    <div class="stat-label">Accounts Opened</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$3B+</div>
+                    <div class="stat-label">Money Moved</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$35</div>
+                    <div class="stat-label">CAC (Lowest in Fintech)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">CTO · COO · CMO — Building from Zero to Billions</div>
+            <div class="logo">MyBambu</div>
+        </div>
+    </div>
+
+    <script>
+        // Instructions for taking screenshot
+        console.log('Open this page and take a screenshot at 1200x630px');
+        console.log('Save as: preview.jpg in the same directory');
+        console.log('Or use: Screenshot tool with exact dimensions 1200x630');
+    </script>
+</body>
+</html>
