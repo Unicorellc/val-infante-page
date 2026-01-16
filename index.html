@@ -1034,6 +1034,16 @@
                 padding: 0.875rem 1.5rem !important;
                 font-size: 0.8rem !important;
             }
+
+            /* Contact Cards Mobile */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem !important;
+            }
         }
 
         /* Extra small devices (iPhone SE, etc) */
@@ -1637,21 +1647,89 @@
                         </p>
                     </div>
 
-                    <!-- Primary LinkedIn CTA -->
-                    <div style="margin-top: 4rem; text-align: center;">
-                        <a href="https://www.linkedin.com/in/val-infante-5ba81978" class="cta-button" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #0077B5, #0095D5) !important; box-shadow: 0 20px 60px rgba(0, 119, 181, 0.4), 0 0 80px rgba(0, 119, 181, 0.3) !important; font-size: 1.5rem !important; padding: 2rem 5rem !important;">
-                            <span style="display: inline-flex; align-items: center; gap: 1rem;">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" style="display: inline-block;">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                </svg>
-                                Connect on LinkedIn
-                            </span>
-                        </a>
-                        <br>
-                        <a href="mailto:valinfante10@gmail.com" class="cta-button" style="margin-top: 1.5rem;">📧 Email Me</a>
-                        <p style="margin-top: 2rem; font-size: 1.1rem; color: var(--gray-300); font-weight: 600;">
-                            💼 Let's discuss executive opportunities, partnerships, or speaking engagements
+                    <!-- Primary CTA Buttons -->
+                    <div style="margin-top: 4rem;">
+                        <p style="text-align: center; font-size: 1.3rem; color: var(--gray-300); font-weight: 600; margin-bottom: 3rem; line-height: 1.6;">
+                            💼 Open to executive opportunities, partnerships, and speaking engagements
                         </p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+                            <!-- LinkedIn Button -->
+                            <a href="https://www.linkedin.com/in/val-infante-5ba81978" target="_blank" rel="noopener noreferrer" style="
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 1.5rem;
+                                padding: 3rem 2rem;
+                                background: rgba(0, 119, 181, 0.1);
+                                backdrop-filter: blur(20px);
+                                border: 2px solid rgba(0, 119, 181, 0.3);
+                                border-radius: 24px;
+                                text-decoration: none;
+                                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                                position: relative;
+                                overflow: hidden;
+                            " class="contact-card" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.borderColor='rgba(0, 119, 181, 0.8)'; this.style.background='rgba(0, 119, 181, 0.2)'; this.style.boxShadow='0 30px 80px rgba(0, 119, 181, 0.4), 0 0 100px rgba(0, 119, 181, 0.3)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(0, 119, 181, 0.3)'; this.style.background='rgba(0, 119, 181, 0.1)'; this.style.boxShadow='none';">
+                                <div style="
+                                    width: 80px;
+                                    height: 80px;
+                                    background: linear-gradient(135deg, #0077B5, #0095D5);
+                                    border-radius: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    box-shadow: 0 10px 30px rgba(0, 119, 181, 0.4);
+                                    transition: all 0.4s ease;
+                                " class="icon-box">
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="white">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #0095D5; margin-bottom: 0.5rem;">LinkedIn</div>
+                                    <div style="font-size: 0.95rem; color: var(--gray-300); font-weight: 500;">Let's connect professionally</div>
+                                </div>
+                            </a>
+
+                            <!-- Email Button -->
+                            <a href="mailto:valinfante10@gmail.com" style="
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 1.5rem;
+                                padding: 3rem 2rem;
+                                background: rgba(39, 251, 107, 0.08);
+                                backdrop-filter: blur(20px);
+                                border: 2px solid rgba(39, 251, 107, 0.3);
+                                border-radius: 24px;
+                                text-decoration: none;
+                                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                                position: relative;
+                                overflow: hidden;
+                            " class="contact-card" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.borderColor='rgba(39, 251, 107, 0.8)'; this.style.background='rgba(39, 251, 107, 0.15)'; this.style.boxShadow='0 30px 80px rgba(39, 251, 107, 0.4), 0 0 100px rgba(39, 251, 107, 0.3)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(39, 251, 107, 0.3)'; this.style.background='rgba(39, 251, 107, 0.08)'; this.style.boxShadow='none';">
+                                <div style="
+                                    width: 80px;
+                                    height: 80px;
+                                    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                                    border-radius: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    box-shadow: 0 10px 30px rgba(39, 251, 107, 0.4);
+                                    transition: all 0.4s ease;
+                                " class="icon-box">
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="white">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">Email</div>
+                                    <div style="font-size: 0.95rem; color: var(--gray-300); font-weight: 500;">Direct communication</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <p style="margin-top: 4rem; font-size: 1rem; color: var(--gray-400);">
