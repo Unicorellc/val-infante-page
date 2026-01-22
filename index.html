@@ -1404,7 +1404,96 @@
             </div>
         </section>
 
-        <!-- Slide 5: Technical Leadership -->
+        <!-- Slide 5: MyBambu Products -->
+        <section class="slide">
+            <div class="gradient-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>MyBambu Product Portfolio</h2>
+                <p class="subtitle">4 revenue streams built from the ground up—$5.9M+ Year 1 revenue opportunity</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-label">Product 1</div>
+                        <h3>Continental Assist</h3>
+                        <div class="card-number" data-target="1.66" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Insurance + Reactivation Strategy</div>
+                        <ul class="feature-list" style="margin-top: 1.5rem;">
+                            <li>Targets 279K inactive customers</li>
+                            <li>$5.99-$14.99/month subscription model</li>
+                            <li>2.2x higher customer LTV</li>
+                            <li>8,375% ROI, 5-day payback</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Product 2</div>
+                        <h3>Bambu Send</h3>
+                        <div class="card-number" data-target="1.0" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Cross-Border Remittance Platform</div>
+                        <ul class="feature-list" style="margin-top: 1.5rem;">
+                            <li>Serving 18 LATAM countries</li>
+                            <li>$0.85 transfers vs $9-12 industry avg</li>
+                            <li>35-minute cross-border transfers</li>
+                            <li>2,806% ROI with reactivation strategy</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Product 3</div>
+                        <h3>Bambu Pay 2.0</h3>
+                        <div class="card-number" data-target="2.7" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Core Transactional Platform</div>
+                        <ul class="feature-list" style="margin-top: 1.5rem;">
+                            <li>Digital wallet + debit card</li>
+                            <li>57K+ monthly transactions</li>
+                            <li>No ITIN/SSN required</li>
+                            <li>98%+ transaction success rate</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Product 4</div>
+                        <h3>Health Services</h3>
+                        <div class="card-number" data-target="0.55" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Affordable Healthcare Access</div>
+                        <ul class="feature-list" style="margin-top: 1.5rem;">
+                            <li>$9.99/month telehealth services</li>
+                            <li>Prescription delivery included</li>
+                            <li>6.3:1 LTV:CAC ratio</li>
+                            <li>Mental health + wellness programs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stat-grid" style="margin-top: 4rem;">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="5.9" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="stat-label">Year 1 Revenue Target</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="8.7" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="stat-label">Year 3 Revenue Projection</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="76400" data-suffix="+">0+</div>
+                        <div class="stat-label">Total Active Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="4">0</div>
+                        <div class="stat-label">Revenue Streams</div>
+                    </div>
+                </div>
+
+                <div class="quote-box" style="margin-top: 4rem;">
+                    Built a complete financial services ecosystem from scratch—insurance, remittances, payments, and healthcare—all designed to serve the underbanked immigrant community. 4 products, 1 mission: financial inclusion at scale.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Technical Leadership -->
         <section class="slide">
             <div class="gradient-bg">
                 <div class="gradient-orb orb-1"></div>
@@ -1856,7 +1945,7 @@
 
         // Animate counters
         function animateCounter(element, target, suffix = '', prefix = '') {
-            const duration = 2500;
+            const duration = 800;
             const start = parseFloat(element.textContent.replace(/[^0-9.]/g, '')) || 0;
             const increment = (target - start) / (duration / 16);
             let current = start;
